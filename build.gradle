@@ -1,0 +1,21 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+apply plugin: "idea"
+apply plugin: "groovy"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.5'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile 'com.squareup.retrofit:converter-jackson:2.0.0-beta2'
+
+    runtime "org.slf4j:slf4j-simple:1.7.12"
+}
