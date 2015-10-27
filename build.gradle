@@ -19,3 +19,8 @@ dependencies {
 
     runtime "org.slf4j:slf4j-simple:1.7.12"
 }
+
+task runScript (dependsOn: 'classes', type: JavaExec) {
+    main = 'nerdery.jvm.challenge.starwars.ChallengeApp'
+    classpath = sourceSets.main.runtimeClasspath
+}
