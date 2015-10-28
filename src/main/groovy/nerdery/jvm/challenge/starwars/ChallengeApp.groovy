@@ -35,7 +35,6 @@ class ChallengeApp {
                 void run() {
                     Person person = service.getPersonFromUri(it)
                     starshipsByTatooineResident.put(person.name, [])
-                    CountDownLatch peopleLatch = new CountDownLatch(person.starships.size())
                     person.starships.each({
                         executor.submit(new Runnable() {
                             @Override
@@ -44,9 +43,7 @@ class ChallengeApp {
                                 starshipsByTatooineResident.get(person.name).add(starship.name)
                             }
                         })
-                        peopleLatch.countDown()
                     })
-                    peopleLatch.await()
                     tatooineLatch.countDown()
                 }
             })
